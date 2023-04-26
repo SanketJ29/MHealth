@@ -13,7 +13,7 @@ const Navbar = () => {
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
       <Link to="/" className="mr-5 hover:text-white">Home </Link>
-      <a class="mr-5 hover:text-white">Predict</a>
+      <Link to="/prediction" className="mr-5 hover:text-white">Predict</Link>
       <Link to="/audit" className="mr-5 hover:text-white">
         Audit
       </Link>

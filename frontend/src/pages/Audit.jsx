@@ -7,6 +7,7 @@ const Audit = () => {
   const [email, setEmail] = useState('');
   const [file, setFile] = useState(null);
   const [fileUrl, setFileUrl] = useState(null);
+  const [text, setText] = useState('');
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -20,7 +21,7 @@ const Audit = () => {
     formData.append('email', email);
 
     try {
-      const response = await axios.post('/api/data', formData, {
+      const response = await axios.post('/api/audit', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         },
@@ -30,6 +31,12 @@ const Audit = () => {
         const blob = new Blob([response.data], {type: 'image/jpeg'});
         const url = URL.createObjectURL(blob);
         setFileUrl(url); // set fileUrl state to display the image
+        const textResponse = await axios.get('/api/audit-text');
+      if (textResponse.status === 200) {
+        setText(textResponse.data); // Update state with OCR text
+      } else {
+        console.error(`Response error: ${textResponse.status}`);
+      }
       } else {
         console.error(`Response error: ${response.status}`);
       }
@@ -58,12 +65,11 @@ const Audit = () => {
       </div>
     </form>
     {fileUrl && (
-      <img
-        className="mx-auto max-w-full max-h-full mt-8"
-        src={fileUrl}
-        alt="OCR Output"
-      />
-    )}
+  <div className="max-w-full max-h-full mt-8 text-center">
+    <img src={fileUrl} alt="OCR Output" className="mx-auto" />
+    <p className="text-white mt-4">{JSON.stringify(text)}</p>
+  </div>
+)}
   </div>
 </section>
 

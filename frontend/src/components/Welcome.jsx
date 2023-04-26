@@ -11,7 +11,7 @@ const Welcome = () => {
       </h1>
       <p class="mb-8 leading-relaxed">Mental disorders are growing very rapidy and a lot of people are affected due to this. This website deals with the user's social media chats to predict their mental health and also provide prescription audit</p>
       <div class="flex justify-center">
-        <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Predict</button>
+       <Link to="/prediction"><button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Predict</button> </Link>
         <Link to="/audit"> <button class="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">Audit</button> </Link>
       </div>
     </div>
