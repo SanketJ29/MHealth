@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Audit from "./pages/Audit";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Prediction from "./pages/Prediction";
+import ChatGPT from "./pages/chatgpt";
 
 
 const App = () => {
@@ -18,6 +19,10 @@ const App = () => {
     {
       path: "/prediction",
       element: <Prediction/>,
+    },
+    {
+      path: "/chatgpt",
+      element: <ChatGPT/>
     }
   ]);
   return (

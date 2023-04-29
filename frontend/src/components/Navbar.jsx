@@ -17,6 +17,9 @@ const Navbar = () => {
       <Link to="/audit" className="mr-5 hover:text-white">
         Audit
       </Link>
+      <Link to="/chatgpt" className="mr-5 hover:text-white">
+        Chatbot
+      </Link>
       {/* <a class="mr-5 hover:text-white">Fourth Link</a> */}
     </nav>
     <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">Login

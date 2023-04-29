@@ -19,6 +19,7 @@ const Welcome = () => {
       <img class="object-cover object-center rounded" alt="hero" src="https://www.linkpicture.com/q/istockphoto-1294477039-612x612.jpg" />
     </div>
   </div>
+  
 </section>
     )
 }

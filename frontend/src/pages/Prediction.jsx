@@ -9,6 +9,7 @@ const Prediction = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      console.log('This is a tweet : ', tweets[0]);
       const response = await axios.post('/api/prediction', {
         Data1: tweets[0],
         Data2: tweets[1],
@@ -21,6 +22,11 @@ const Prediction = () => {
         // set the prediction state with the response data
         const predictions = response.data;
   if (predictions && predictions.length > 0) {
+    const counts = {};
+          predictions.forEach(p => {
+            counts[p] = (counts[p] || 0) + 1;
+          });
+          const overall_sentiment = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
     setPrediction(predictions[0]);
     } else {
       console.error('Prediction array is empty or undefined');
@@ -34,6 +40,7 @@ const Prediction = () => {
   };
 
   const handleTweetChange = (index, value) => {
+    console.log('Hello')
     const newTweets = [...tweets];
     newTweets[index] = value;
     setTweets(newTweets);
